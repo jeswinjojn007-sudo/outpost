@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { dark } from "@clerk/ui/themes";
 import {
   OrganizationSwitcher,
   Show,
@@ -11,6 +12,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
+import { PlanButton } from "@/components/PlanButton";
 
 export const SiteHeader = () => {
   const pathname = usePathname();
@@ -76,16 +78,37 @@ export const SiteHeader = () => {
         <Show when="signed-in">
           <OrganizationSwitcher
             afterCreateOrganizationUrl="/dashboard"
-            afterSelectOrganizationUrl="/dashboars"
+            afterSelectOrganizationUrl="/dashboard"
           />
 
-          {isLandingPage && (
+          {isLandingPage ? (
             <Button asChild size="sm">
               <Link href="/dashboard">Dashboard</Link>
             </Button>
+          ) : (
+            <PlanButton />
           )}
 
-          <UserButton />
+          <UserButton
+            appearance={{
+              theme: dark,
+            }}
+            userProfileProps={{
+              appearance: {
+                theme: dark,
+                variables: {
+                  colorPrimary: "#FB923C",
+                  colorPrimaryForeground: "#18181B",
+                  colorForeground: "#F4F4F5",
+                  colorMutedForeground: "#A1A1AA",
+                  colorBackground: "#202024",
+                  colorInput: "#27272A",
+                  colorInputForeground: "#F4F4F5",
+                  colorBorder: "#3F3F46",
+                },
+              },
+            }}
+          />
         </Show>
       </div>
     </header>
