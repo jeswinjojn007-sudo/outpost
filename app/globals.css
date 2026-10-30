@@ -126,14 +126,18 @@
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    background: radial-gradient(ellipse 40% 50% at 50% 42%,
-        oklch(0.78 0.16 60),
-        oklch(0.74 0.16 55 / 0.55) 45%,
-        oklch(1 0 0 / 0.45) 75%);
+    background: radial-gradient(
+      ellipse 40% 50% at 50% 42%,
+      oklch(0.78 0.16 60),
+      oklch(0.74 0.16 55 / 0.55) 45%,
+      oklch(1 0 0 / 0.45) 75%
+    );
     mask-image:
       url("/textures/topo.svg"),
       radial-gradient(ellipse 75% 70% at 50% 45%, black 30%, transparent 85%);
-    mask-size: cover, 100% 100%;
+    mask-size:
+      cover,
+      100% 100%;
     mask-position: center;
     mask-repeat: no-repeat;
     mask-composite: intersect;
