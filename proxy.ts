@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 const isProtectedRoute = createRouteMatcher([
   "/dashboard(.*)",
   "/workspace(.*)",
+  "/workspaces(.*)",
 ]);
 
 // this will run befor clerk middleware befor the app runs
